@@ -14,10 +14,18 @@
     <div class="container">
       <%= render 'layouts/flash_messages' %>
 
+      <% if logged_in? %>
+        <h1><%= current_user.name =%></h1>
+        <img class="rounded me-2 mb-5" src="<%= gravatar_url(current_user, { size: 64 }) %>" alt="">
+      <% end %>
+
+
       <%= yield %>
 
       <% if logged_in? %>
-        <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %>
+        <div>
+          <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %>
+        </div>
       <% end %>
     </div>
   </body>

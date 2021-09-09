@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def index
     if logged_in?
-      @tasks = Task.all
+      @tasks = current_user.tasks.order(id: :desc)
     else
       redirect_to login_url
     end
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
 
     if @task.save
       flash[:success] = 'タスク が正常に作成されました'
