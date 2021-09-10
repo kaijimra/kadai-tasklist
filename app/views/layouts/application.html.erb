@@ -16,7 +16,6 @@
 
       <% if logged_in? %>
         <h1><%= current_user.name =%></h1>
-        <img class="rounded me-2 mb-5" src="<%= gravatar_url(current_user, { size: 64 }) %>" alt="">
       <% end %>
 
 

@@ -6,7 +6,6 @@
       <ul>
         <% @tasks.each do |task| %>
           <li>
-            <img class="rounded me-2 mb-5" src="<%= gravatar_url(task.user, { size: 64 }) %>" alt="">
             <%= task.user.name %>
             <%= link_to task.id, task %> :　<%= task.status %> &gt; <%= task.content %>
           </li>
